@@ -18,7 +18,7 @@ Upload a .csv file containing the historical claims data for each loss and devel
 > 3. Development years start from 1
 > 4. For the j<sup>th</sup> development year, we have claims data for the first N - j + 1 loss years 
 
-*testdata.csv* is included in the repo as an example input file (extracted from orginal specification excel sheet).  
+*[testdata.csv](testdata.csv)* is included in the repo as an example input file (extracted from orginal specification excel sheet).  
 
 Then, input a tail factor (default 1.1). The plot and table will automatically be displayed. 
 Below is a screenshot of the output produced with *testdata.csv* and tail factor 1.1.
