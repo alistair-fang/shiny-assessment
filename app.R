@@ -3,6 +3,9 @@ library(bslib)
 library(ggplot2)
 library(DT)
 library(dplyr)
+library(tidyr)
+library(readr)
+library(tibble)
 
 ui <-  page_sidebar (
   title = "Cumulative Paid Claims Calculator",
