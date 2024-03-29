@@ -7,7 +7,7 @@ The shiny app takes input of claims data in the form of a .csv file and a numeri
 From this data, it calculates the cumulative paid claims in each loss year and development year. This is displayed on a scatter plot and table.
 
 ### How to use: 
-The app is currently hosted [here](). Alternatively, you may download the code and run it locally. 
+The app is currently hosted [here](https://alistair-fang.shinyapps.io/shiny-assessment). Alternatively, you may download the code and run it locally. 
 
 Upload a .csv file containing the historical claims data for each loss and development year.
 
