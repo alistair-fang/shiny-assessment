@@ -36,7 +36,7 @@ The code was designed under the assumption that criteria 2-4 above are met. Thes
 1. For the sake of simplicity 
 2. My lack of understanding on how the calculations would be run otherwise
 
-I have contemplated adding a validation function to check if the file inputted met the given criteria, but did not deem it worth the effort/time.  
+I have contemplated adding a validation function to check if the input file meets the given criteria, but did not deem it worth the effort/time.  
 
  
 
