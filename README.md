@@ -25,7 +25,7 @@ Below is a screenshot of the output produced with *testdata.csv* and tail factor
 
 ![example_screenshot](https://github.com/alistair-fang/shiny-assessment/assets/163993215/fdbe2a14-e82b-4bda-bbb0-bf3ade3a20bb)
 
-Unchecking the 'Show Table' box will hide the data table. 
+Unchecking the 'Show Data Table' box will hide the data table. 
 
 ### Testing: 
 The app emulated the output of the specification excel sheet correctly throughout my testing, where I altered the claims' numbers and/or tail factor.
@@ -35,7 +35,7 @@ While in theory the app should also work for larger datasets (N > 3) meeting the
 ### Design: 
 The code was designed under the assumption that criteria 2-4 above are met. These criteria are chosen because:
 1. For the sake of simplicity 
-2. My lack of understanding on how the calculations would be run otherwise
+2. Lack of understanding on how the calculations would be run otherwise
 
 I have contemplated adding a validation function to check if the input file meets the given criteria, but did not deem it worth the effort/time.  
 
