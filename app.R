@@ -109,7 +109,7 @@ server <- function(input, output) {
     }
   })
   
-  # Displays cumulative claims data on  a scatter-plot
+  # Displays cumulative claims data on a scatter-plot
   
   output$plot <- renderPlot({
     
