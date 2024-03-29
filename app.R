@@ -8,7 +8,7 @@ ui <-  page_sidebar (
   title = "Cumulative Paid Claims Calculator",
   sidebar = sidebar(
     fileInput("claims_data", label = "Upload Claims Data (.csv file)", accept = ".csv"),
-    helpText('Note: csv file must have columns with headers "loss_year","dev_year","claims"'),
+    helpText("Note: csv file must have columns with headers 'loss_year','dev_year','claims'. See README.md for more info"),
     numericInput("tf", label = "Tail Factor", value = 1.1, step = 0.05),
     checkboxInput("show_table", label ="Show Data Table", value = TRUE),
     dataTableOutput(outputId = "table", height = "100%", width = "100%"),
@@ -21,6 +21,8 @@ ui <-  page_sidebar (
 )
 
 server <- function(input, output) {
+  
+  # Calculate cumulative claims based on input data
   
   calculate_data <- reactive({
     
@@ -72,6 +74,8 @@ server <- function(input, output) {
     
   })
   
+  # Finalise data based on tail factor
+  
   final_data <- reactive({
     
     TAIL_FACTOR <- input$tf
@@ -89,6 +93,8 @@ server <- function(input, output) {
     
   })
   
+  # Displays data table if the checkbox is ticked
+  
   output$table <- renderDataTable({
     
     final_data <- final_data()
@@ -102,6 +108,8 @@ server <- function(input, output) {
                                Columns represent development year")
     }
   })
+  
+  # Displays cumulative claims data on  a scatter-plot
   
   output$plot <- renderPlot({
     
