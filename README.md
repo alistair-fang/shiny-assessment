@@ -1,12 +1,12 @@
 # shiny-assessment
-#### Description:
+### Description:
 This repo contains my [R Shiny assessment](https://github.com/n-actuarial/r-shiny-intro) project, as part of my R Shiny training at n-actuarial. 
 
 The shiny app takes input of claims data in the form of a .csv file and a numeric input tail factor.
 
 From this data, it calculates the cumulative paid claims in each loss year and development year. This is displayed on a scatter plot and table.
 
-#### How to use: 
+### How to use: 
 The app is currently hosted [here](). Alternatively, you may download the code and run it locally. 
 
 Upload a .csv file containing the historical claims data for each loss and development year.
@@ -26,12 +26,12 @@ Then, input a tail factor (default 1.1). The plot and table will automatically b
 
 Unchecking the 'Show Table' box will hide the data table. 
 
-#### Testing: 
+### Testing: 
 The app emulated the output of the specification excel sheet correctly throughout my testing, where I altered the claims' numbers and/or tail factor.
 
 While in theory the app should also work for larger datasets (N > 3) meeting the criteria above, I am unable to test this as I lack knowledge/understanding of the expected output in these cases. 
 
-#### Design: 
+### Design: 
 The code was designed under the assumption that criteria 2-4 above are met. These criteria are chosen because:
 1. For the sake of simplicity 
 2. My lack of understanding on how the calculations would be run otherwise
