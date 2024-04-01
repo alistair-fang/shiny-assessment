@@ -25,7 +25,7 @@ In the input boxes, input the names of the columns in your .csv file that corres
 Then, input a tail factor (default 1.1). The plot and table will automatically be displayed. 
 Below is a screenshot of the output produced with *testdata.csv* and tail factor 1.1.
 
-![example_screenshot]("example_screenshot.png")
+![example_screenshot](example_screenshot.png)
 
 Unchecking the 'Show Data Table' box will hide the data table. 
 
