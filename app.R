@@ -11,7 +11,11 @@ ui <-  page_sidebar (
   title = "Cumulative Paid Claims Calculator",
   sidebar = sidebar(
     fileInput("claims_data", label = "Upload Claims Data (.csv file)", accept = ".csv"),
-    helpText("Note: csv file must have columns with headers 'loss_year','dev_year','claims'. See README.md for more info"),
+    helpText("Provide column names in CSV file corresponding to loss year, development year, and claims (case-sensitive)"),
+    splitLayout(textInput("loss_year", label = "Loss Year", value = "loss_year", width = "100%"),
+                textInput("dev_year", label = "Development Year", value = "dev_year"),
+                textInput("claims", label = "Claims", value = "claims")),
+    # helpText("Note: csv file must have columns with headers 'loss_year','dev_year','claims'. See README.md for more info"),
     numericInput("tf", label = "Tail Factor", value = 1.1, step = 0.05),
     checkboxInput("show_table", label ="Show Data Table", value = TRUE),
     dataTableOutput(outputId = "table", height = "100%", width = "100%"),
@@ -32,16 +36,21 @@ server <- function(input, output) {
     if (is.null(input$claims_data))
       return(NULL)
     
+    # Assign column names
+    loss_year <- input$loss_year
+    dev_year <- input$dev_year
+    claims <- input$claims
+    
     data <- read.csv((input$claims_data)$datapath)
     
-    # For sake of convenience, we assume that: the claims data given has 
+    # For the sake of convenience, we assume that: the claims data given has 
     # N unique consecutive loss and development years;
     # development years start from 1;
     # and for the jth development year, we have claims data for the first 
     # N - j + 1 loss years
     
-    loss_years <- sort(unique(data$loss_year))
-    dev_years <- sort(unique(data$dev_year))
+    loss_years <- sort(unique(data[, loss_year]))
+    dev_years <- sort(unique(data[, dev_year]))
     N <- length(dev_years)
     
     # Initialise data frame to store cumulative claims data 
@@ -58,8 +67,8 @@ server <- function(input, output) {
       # Sum up claims data to produce cumulative claims
       
       for (i in 1:(N - j + 1)) {
-        cum_claims[i, j] <- sum(data$claims[data$loss_year == loss_years[i] 
-                                            & data$dev_year <= j])
+        cum_claims[i, j] <- sum(data[, claims][data[, loss_year] == loss_years[i] 
+                                            & data[, dev_year] <= j])
       }
       
       # Calculate projected cumulative claims for N development years
